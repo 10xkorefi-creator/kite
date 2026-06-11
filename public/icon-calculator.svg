@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+<g transform="translate(2.5,2.5)">
+<rect x="28" y="16" width="40" height="64" rx="7" fill="#a78bfa"/>
+<rect x="35" y="24" width="26" height="13" rx="2" fill="#ffffff"/>
+<circle cx="39" cy="50" r="3.5" fill="#ede9fe"/>
+<circle cx="48" cy="50" r="3.5" fill="#ede9fe"/>
+<circle cx="57" cy="50" r="3.5" fill="#ede9fe"/>
+<circle cx="39" cy="62" r="3.5" fill="#ede9fe"/>
+<circle cx="48" cy="62" r="3.5" fill="#ede9fe"/>
+<circle cx="57" cy="62" r="3.5" fill="#ede9fe"/>
+</g>
+<rect x="28" y="16" width="40" height="64" rx="7" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="35" y="24" width="26" height="13" rx="2" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44 30 h13" fill="none" stroke="#232946" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="39" cy="50" r="3.5" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="48" cy="50" r="3.5" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="57" cy="50" r="3.5" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="39" cy="62" r="3.5" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="48" cy="62" r="3.5" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="57" cy="62" r="3.5" fill="none" stroke="#232946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
