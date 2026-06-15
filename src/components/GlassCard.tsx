@@ -32,7 +32,7 @@ export default function GlassCard({
           ? "0 10px 30px -10px rgba(2, 132, 199, 0.15), 0 1px 1px 0 rgba(255, 255, 255, 0.5) inset"
           : "0 10px 25px -10px rgba(30, 41, 59, 0.06)",
       }}
-      className={`glassmorphism rounded-2xl p-6 transition-all duration-300 ${className}`}
+      className={`glassmorphism rounded-xl p-6 transition-all duration-300 ${className}`}
     >
       {children}
     </motion.div>

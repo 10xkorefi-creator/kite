@@ -93,7 +93,7 @@ export default function EligibilityNudge() {
             <motion.div variants={item} className="mt-10">
               <a
                 href="#apply"
-                className="inline-flex items-center justify-center rounded-full bg-coral px-10 py-3.5 text-base font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/95 active:scale-[0.98]"
+                className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-3.5 text-base font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/95 active:scale-[0.98]"
               >
                 Apply now
               </a>
@@ -107,11 +107,11 @@ export default function EligibilityNudge() {
             transition={{ duration: 0.7, ease: EASE }}
             className="lg:col-span-5"
           >
-            <div className="relative overflow-hidden rounded-[2rem] border border-ink/10 bg-white p-2.5 shadow-lg shadow-ink/5">
+            <div className="relative overflow-hidden rounded-2xl border border-ink/10 bg-white p-2 shadow-lg shadow-ink/5">
               <img
                 src="/team-meeting.png"
                 alt="Who Can Apply Illustration"
-                className="w-full h-auto rounded-[1.75rem] object-cover"
+                className="w-full h-auto rounded-xl object-cover"
               />
             </div>
           </motion.div>

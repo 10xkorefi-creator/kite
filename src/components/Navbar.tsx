@@ -6,9 +6,9 @@ import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#why-kite" },
-  { label: "Contact", href: "#footer" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Contact", href: "/about-us#contact" },
   { label: "Dashboard", href: "/dashboard" },
 ];
 
@@ -49,7 +49,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href="#apply"
-            className="hidden rounded-full bg-coral px-6 py-2.5 text-[15px] font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98] md:inline-block"
+            className="hidden rounded-lg bg-coral px-6 py-2.5 text-[15px] font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98] md:inline-block"
           >
             Apply now
           </a>
@@ -108,7 +108,7 @@ export default function Navbar() {
                 <a
                   href="#apply"
                   onClick={() => setOpen(false)}
-                  className="block rounded-full bg-coral px-5 py-3 text-center text-base font-bold text-white shadow-md shadow-coral/15 hover:bg-coral/90"
+                  className="block rounded-lg bg-coral px-5 py-3 text-center text-base font-bold text-white shadow-md shadow-coral/15 hover:bg-coral/90"
                 >
                   Apply now
                 </a>

@@ -15,7 +15,7 @@ export default function FinalCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="relative isolate overflow-hidden rounded-[3rem] border border-ink/5 bg-white px-6 py-16 text-center shadow-sm shadow-ink/5 sm:px-12 lg:py-20"
+          className="relative isolate overflow-hidden rounded-xl border border-ink/5 bg-white px-6 py-16 text-center shadow-sm shadow-ink/5 sm:px-12 lg:py-20"
         >
           {/* background doodles */}
           <img
@@ -48,13 +48,13 @@ export default function FinalCta() {
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="#"
-              className="inline-flex items-center justify-center rounded-full bg-coral px-10 py-4 text-lg font-bold text-white shadow-lg shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98]"
+              className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-4 text-lg font-bold text-white shadow-lg shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98]"
             >
               Apply now
             </a>
             <a
               href="#eligibility"
-              className="inline-flex items-center justify-center rounded-full border border-ink/15 bg-white px-10 py-4 text-lg font-bold text-ink transition-all hover:border-royal hover:text-royal-deep active:scale-[0.98]"
+              className="inline-flex items-center justify-center rounded-lg border border-ink/15 bg-white px-10 py-4 text-lg font-bold text-ink transition-all hover:border-royal hover:text-royal-deep active:scale-[0.98]"
             >
               Check eligibility
             </a>

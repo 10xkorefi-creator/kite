@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 const legalLinks = [
-  "About us",
-  "Privacy Policy",
-  "Fair Practice Code to Directors and key personnel",
-  "Fair Practice Code",
-  "Grievance Redressal Officer",
-  "IT Usage Policy",
-  "KYC & AML Policy",
-  "Platform Facilitator Fee",
-  "Responsible Co-Lending Policy",
-  "T&C",
-  "Vigil Mechanism",
-  "Customer Grievance Redressal Mechanism",
+  { label: "About Us", href: "/about-us" },
+  { label: "Privacy Policy", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_bcd9a22d6c1a4859a78aaef7c727b400.pdf" },
+  { label: "Fair Practice Code for Collection and Recovery", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_fef7f7a86c7143dca07ca3f3cb0da300.pdf" },
+  { label: "Fair Practice Code", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_70c80d81208b4d64b65a65a7f828aa6a.pdf" },
+  { label: "Code of conduct for DSA & DMA", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_485066f88917464d86291e0d00bc2286.pdf" },
+  { label: "IT Usage Policy", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_bf5a8c2716354d73bf8754488f3e77ad.pdf" },
+  { label: "KYC & AML Policy", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_17631157930841668c452d746d6f777f.pdf" },
+  { label: "Business Continuity Plan", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_0e26bcf1f5554a17b06cf5ef7da41610.pdf" },
+  { label: "Approach for Risk Gradation", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_034fb2bb12974032b8ad6295f7808605.pdf" },
+  { label: "MITC", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_c0bbe5ac246b4545a3a221372af1f66c.pdf" },
+  { label: "Our LSPs list", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_287de98f08914399924e1060d672e5e1.pdf" },
+  { label: "Customer Grievance Redressal Mechanism", href: "/about-us#contact" },
 ];
 
 export default function Footer() {
@@ -39,12 +39,23 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45 mb-4">
               Company &amp; Legal
             </h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm text-white/70">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-2 text-sm text-white/70">
               {legalLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="hover:text-white transition-colors">
-                    {link}
-                  </a>
+                <li key={link.label}>
+                  {link.href.startsWith("/") ? (
+                    <Link href={link.href} className="hover:text-white transition-colors">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -58,13 +69,12 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                Registered Office Address
+                Registered office address:
               </h3>
               <p className="leading-relaxed text-white/60">
-                840, 1st &amp; 2nd Floor, 5th Cross,<br />
-                11th Main Rd, HAL 2nd Stage,<br />
-                Indiranagar, Bengaluru,<br />
-                Karnataka 560008 - India
+                SF-04, Smart Square, Krishna Temple<br />
+                Road, Stage 1 Indiranagar -<br />
+                Bangalore 560038 - Karnataka.
               </p>
             </div>
 
@@ -73,16 +83,16 @@ export default function Footer() {
                 <svg className="h-4 w-4 text-white/45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:info@kite-fin.com" className="hover:text-white transition-colors">
-                  info@kite-fin.com
+                <a href="mailto:Info@kitefinance.in" className="hover:text-white transition-colors">
+                  Info@kitefinance.in
                 </a>
               </p>
               <p className="flex items-center gap-2 text-white/60">
                 <svg className="h-4 w-4 text-white/45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="tel:+918591863557" className="hover:text-white transition-colors">
-                  +91 85918 63557
+                <a href="tel:+916366452827" className="hover:text-white transition-colors">
+                  +91 6366452827
                 </a>
               </p>
             </div>
@@ -92,12 +102,12 @@ export default function Footer() {
                 Grievance Redressal
               </h3>
               <p className="text-white/60 leading-relaxed">
-                Mr. Wasif Kareem (Grievance Redressal Officer)<br />
-                <a href="mailto:gro@kite-fin.com" className="text-white/80 hover:text-white underline">
-                  gro@kite-fin.com
+                Grievance Officer - Ms. Mittal Panchal<br />
+                <a href="mailto:gro@kitefinance.in" className="text-white/80 hover:text-white underline">
+                  gro@kitefinance.in
                 </a><br />
-                <a href="tel:02269022029" className="text-white/80 hover:text-white">
-                  022 6902 2029
+                <a href="tel:6366452827" className="text-white/80 hover:text-white">
+                  6366452827
                 </a>
               </p>
             </div>
