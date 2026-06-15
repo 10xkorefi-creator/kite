@@ -106,9 +106,9 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-white/10 pt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6 text-xs leading-relaxed text-white/50">
           <p className="max-w-md">
-            Kite Finance Private Limited is a non-banking financial company
-            (NBFC) registered with the Reserve Bank of India. Registration No. B-02.00067.
-            RBI does not accept any responsibility or guarantee about the present position as to the financial soundness of the company or for the correctness of any of the statements or representations made or opinions expressed by the company and for repayment of deposits/ discharge of liabilities by the company.
+            Note: We are a Non-Banking Financial Company registered with Reserve Bank of India<br />
+            Company Name: Jayshree Dealers Private Limited<br />
+            Corporate Identity Number (CIN) :U45201WB1996PTC079873
           </p>
           <p className="shrink-0">
             © 2024 All rights reserved | Kite Finance

@@ -5,16 +5,16 @@ import { motion, useReducedMotion } from "framer-motion";
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const terms = [
-  { label: "Loan Amount", value: "₹ 5 Lakhs to 1 Crore" },
-  { label: "Interest Rates**", value: "1 - 2% per month" },
-  { label: "Loan Tenure", value: "1 month - 5 years" },
-  { label: "Pre-Closure Fee***", value: "₹0/-" },
+  { label: "Loan Amount", value: "₹10 Lakhs to ₹1 Crore" },
+  { label: "Interest Rates**", value: "Starting from 15% p.a." },
+  { label: "Loan Tenure", value: "1 month – 48 months" },
+  { label: "Pre-Closure Fee***", value: "₹0/-*" },
 ];
 
 const footnotes = [
-  "* Disbursals detailed behavior under standard process",
-  "** Based on health of your business, revenue and overall turnover",
-  "*** Closure charge may apply under some circumstances",
+  "* Available after payment of first EMI, subject to applicable terms",
+  "** Final interest rate determined based on business profile, revenues and credit assessment",
+  "*** Pre-closure charges, if any, shall be disclosed in the Key Fact Statement and sanction letter",
 ];
 
 export default function Terms() {
