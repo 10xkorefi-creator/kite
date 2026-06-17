@@ -1,13 +1,13 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useApplyModal } from "@/context/ApplyModalContext";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const pressMarks = ["BizDaily", "FinDesk", "MSME Times", "StartupWire"];
-
 export default function Hero() {
   const reduceMotion = useReducedMotion();
+  const { openModal } = useApplyModal();
 
   const container = {
     hidden: {},
@@ -75,12 +75,13 @@ export default function Hero() {
             variants={item}
             className="mt-8 flex flex-wrap gap-4"
           >
-            <a
-              href="#apply"
-              className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-4 text-base font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/95 active:scale-[0.98]"
+            <button
+              type="button"
+              onClick={() => openModal()}
+              className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-4 text-base font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/95 active:scale-[0.98] cursor-pointer"
             >
               Apply Now
-            </a>
+            </button>
             <a
               href="#eligibility"
               className="inline-flex items-center justify-center rounded-lg border-2 border-ink/10 bg-white px-8 py-4 text-base font-bold text-ink transition-all hover:border-royal hover:text-royal-deep active:scale-[0.98]"
@@ -89,18 +90,7 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.div variants={item} className="mt-4 w-full border-t border-ink/5 pt-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-ink/40">
-              Backed by banking &amp; fintech veterans · featured in
-            </p>
-            <div className=" flex flex-wrap items-center gap-x-8 gap-y-2">
-              {pressMarks.map((mark) => (
-                <span key={mark} className="text-sm font-bold text-ink/40 hover:text-ink/60 transition-colors">
-                  {mark}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+
         </motion.div>
 
         {/* Hero Image visually integrated */}

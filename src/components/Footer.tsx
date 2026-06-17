@@ -2,17 +2,17 @@ import Link from "next/link";
 
 const legalLinks = [
   { label: "About Us", href: "/about-us" },
-  { label: "Privacy Policy", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_bcd9a22d6c1a4859a78aaef7c727b400.pdf" },
-  { label: "Fair Practice Code for Collection and Recovery", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_fef7f7a86c7143dca07ca3f3cb0da300.pdf" },
-  { label: "Fair Practice Code", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_70c80d81208b4d64b65a65a7f828aa6a.pdf" },
-  { label: "Code of conduct for DSA & DMA", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_485066f88917464d86291e0d00bc2286.pdf" },
-  { label: "IT Usage Policy", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_bf5a8c2716354d73bf8754488f3e77ad.pdf" },
-  { label: "KYC & AML Policy", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_17631157930841668c452d746d6f777f.pdf" },
-  { label: "Business Continuity Plan", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_0e26bcf1f5554a17b06cf5ef7da41610.pdf" },
-  { label: "Approach for Risk Gradation", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_034fb2bb12974032b8ad6295f7808605.pdf" },
-  { label: "MITC", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_c0bbe5ac246b4545a3a221372af1f66c.pdf" },
-  { label: "Our LSPs list", href: "https://www.kitefinance.in/_files/ugd/eb3c0c_287de98f08914399924e1060d672e5e1.pdf" },
-  { label: "Customer Grievance Redressal Mechanism", href: "/about-us#contact" },
+  { label: "Privacy Policy", href: "/doc/Privacy%20Policy%20Jayshree%20(New)%20.pdf" },
+  { label: "Fair Practice Code for Collection and Recovery", href: "/doc/NBFC%20Fair%20practices%20for%20Code%20Collection%20and%20Recovery%20(New).pdf" },
+  { label: "Fair Practice Code", href: "/doc/Fair%20Practices%20Code%20(New).pdf" },
+  { label: "Code of conduct for DSA & DMA", href: "/doc/Code%20of%20Conduct%20for%20DSA%20%26%20MSA%20(New).pdf" },
+  { label: "IT Usage Policy", href: "/doc/Kite%20IT%20Usage%20Policy%20(New).pdf" },
+  { label: "KYC & AML Policy", href: "/doc/(KYC%20%26%20AML)%20Know%20Your%20Customer%20and%20Anti%20Money%20Laundering%20Policy%20(New).pdf" },
+  { label: "Business Continuity Plan", href: "/doc/Kite%20Business%20Continuity%20Plan%20(New).pdf" },
+  { label: "Approach for Risk Gradation", href: "/doc/Kite%20Approach%20on%20Gradation%20of%20Risk%20(New).pdf" },
+  { label: "MITC", href: "/doc/Kite%20MITC%20Policy%20(New).pdf" },
+  { label: "Our LSPs list", href: "/doc/Kite%20LSP%20(New)%20.pdf" },
+  { label: "Customer Grievance Redressal Mechanism", href: "/doc/Kite%20Customer%20Redressal%20Mechanism%20(New).pdf" },
 ];
 
 export default function Footer() {
@@ -42,7 +42,7 @@ export default function Footer() {
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-2 text-sm text-white/70">
               {legalLinks.map((link) => (
                 <li key={link.label}>
-                  {link.href.startsWith("/") ? (
+                  {link.href.startsWith("/") && !link.href.endsWith(".pdf") ? (
                     <Link href={link.href} className="hover:text-white transition-colors">
                       {link.label}
                     </Link>
@@ -87,29 +87,32 @@ export default function Footer() {
                   Info@kitefinance.in
                 </a>
               </p>
-              <p className="flex items-center gap-2 text-white/60">
-                <svg className="h-4 w-4 text-white/45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <a href="tel:+916366452827" className="hover:text-white transition-colors">
-                  +91 6366452827
-                </a>
-              </p>
+
             </div>
 
             <div className="border-t border-white/10 pt-4">
               <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45 mb-2">
                 Grievance Redressal
               </h3>
-              <p className="text-white/60 leading-relaxed">
-                Grievance Officer - Ms. Mittal Panchal<br />
-                <a href="mailto:gro@kitefinance.in" className="text-white/80 hover:text-white underline">
-                  gro@kitefinance.in
-                </a><br />
-                <a href="tel:6366452827" className="text-white/80 hover:text-white">
-                  6366452827
-                </a>
-              </p>
+              <div className="text-white/60 leading-relaxed space-y-1.5">
+                <div>Grievance Officer - Ms. Mittal Panchal</div>
+                <div className="flex items-center gap-2">
+                  <svg className="h-4 w-4 text-white/45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <a href="mailto:gro@kitefinance.in" className="hover:text-white transition-colors">
+                    gro@kitefinance.in
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="h-4 w-4 text-white/45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <a href="tel:+916366452827" className="hover:text-white transition-colors">
+                    +91 6366452827
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -117,7 +120,7 @@ export default function Footer() {
         <div className="mt-12 border-t border-white/10 pt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6 text-xs leading-relaxed text-white/50">
           <p className="max-w-md">
             Note: We are a Non-Banking Financial Company registered with Reserve Bank of India<br />
-            Company Name: Jayshree Credit Services Private Limited<br />
+            Company Name: Jayshree Credit Services Private Limited (formerly known as Jayshree Dealers Private Limited)<br />
             Corporate Identity Number (CIN): U64920KA1996PTC202260
           </p>
           <p className="shrink-0">

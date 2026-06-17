@@ -1,11 +1,13 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useApplyModal } from "@/context/ApplyModalContext";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function FinalCta() {
   const reduceMotion = useReducedMotion();
+  const { openModal } = useApplyModal();
 
   return (
     <section id="apply" className="scroll-mt-24 py-16 sm:py-24">
@@ -46,12 +48,13 @@ export default function FinalCta() {
           </p>
           
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-4 text-lg font-bold text-white shadow-lg shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98]"
+            <button
+              type="button"
+              onClick={() => openModal()}
+              className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-4 text-lg font-bold text-white shadow-lg shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98] cursor-pointer"
             >
               Apply now
-            </a>
+            </button>
             <a
               href="#eligibility"
               className="inline-flex items-center justify-center rounded-lg border border-ink/15 bg-white px-10 py-4 text-lg font-bold text-ink transition-all hover:border-royal hover:text-royal-deep active:scale-[0.98]"

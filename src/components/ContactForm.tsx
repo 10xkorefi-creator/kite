@@ -230,7 +230,7 @@ export default function ContactForm() {
             <label htmlFor="privacy" className="font-semibold text-ink/70 cursor-pointer">
               I agree to the{" "}
               <a
-                href="https://www.kitefinance.in/_files/ugd/eb3c0c_bcd9a22d6c1a4859a78aaef7c727b400.pdf"
+                href="/doc/Privacy%20Policy%20Jayshree%20(New)%20.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-royal hover:underline font-bold"

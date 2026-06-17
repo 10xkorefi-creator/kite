@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { ApplyModalProvider } from "@/context/ApplyModalContext";
+import ApplyModal from "@/components/ApplyModal";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -31,7 +33,13 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col font-sans">
+        <ApplyModalProvider>
+          {children}
+          <ApplyModal />
+        </ApplyModalProvider>
+      </body>
     </html>
   );
 }
+

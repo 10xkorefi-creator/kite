@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useApplyModal } from "@/context/ApplyModalContext";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -29,6 +30,7 @@ const criteria = [
 
 export default function EligibilityNudge() {
   const reduceMotion = useReducedMotion();
+  const { openModal } = useApplyModal();
 
   const container = {
     hidden: {},
@@ -91,12 +93,13 @@ export default function EligibilityNudge() {
             </motion.div>
 
             <motion.div variants={item} className="mt-10">
-              <a
-                href="#apply"
-                className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-3.5 text-base font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/95 active:scale-[0.98]"
+              <button
+                type="button"
+                onClick={() => openModal()}
+                className="inline-flex items-center justify-center rounded-lg bg-coral px-10 py-3.5 text-base font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/95 active:scale-[0.98] cursor-pointer"
               >
                 Apply now
-              </a>
+              </button>
             </motion.div>
           </motion.div>
 

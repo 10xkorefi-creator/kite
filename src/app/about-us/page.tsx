@@ -19,7 +19,18 @@ import {
 
 export const metadata: Metadata = {
   title: "About Us | Kite Finance",
-  description: "Discover Kite Finance's mission to empower MSMEs in India with unsecured loans. Jayshree Credit Services Private Limited is a registered NBFC offering swift, flexible financial solutions.",
+  description: "Discover Kite Finance's mission to empower MSMEs in India with unsecured loans. Jayshree Credit Services Private Limited (formerly known as Jayshree Dealers Private Limited) is a registered NBFC offering swift, flexible financial solutions.",
+  alternates: {
+    canonical: "https://www.kitefinance.in/about-us",
+  },
+  openGraph: {
+    title: "About Us | Kite Finance",
+    description: "Discover Kite Finance's mission to empower MSMEs in India with unsecured loans. Jayshree Credit Services Private Limited (formerly known as Jayshree Dealers Private Limited) is a registered NBFC offering swift, flexible financial solutions.",
+    url: "https://www.kitefinance.in/about-us",
+    siteName: "Kite Finance",
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 const pillars = [
@@ -169,9 +180,8 @@ export default function AboutUsPage() {
                 return (
                   <div
                     key={item.title}
-                    className={`rounded-2xl border border-slate-100 bg-[#fafafb]/30 p-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:border-royal/20 ${
-                      isLastFull ? "md:col-span-2 lg:col-span-1 md:max-w-2xl md:mx-auto lg:max-w-none" : ""
-                    }`}
+                    className={`rounded-2xl border border-slate-100 bg-[#fafafb]/30 p-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm hover:border-royal/20 ${isLastFull ? "md:col-span-2 lg:col-span-1 md:max-w-2xl md:mx-auto lg:max-w-none" : ""
+                      }`}
                   >
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-royal/10 text-royal mb-4">
                       <Icon className="h-5 w-5" />
@@ -236,19 +246,7 @@ export default function AboutUsPage() {
                   </div>
 
                   {/* Phone */}
-                  <div className="flex gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white border border-ink/5 shadow-sm text-royal">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Call Support</h4>
-                      <p className="mt-1 text-sm">
-                        <a href="tel:+916366452827" className="text-royal hover:underline font-semibold">
-                          +91 63664 52827
-                        </a>
-                      </p>
-                    </div>
-                  </div>
+
 
                   {/* Grievance Officer */}
                   <div className="flex gap-4 border-t border-ink/5 pt-6">

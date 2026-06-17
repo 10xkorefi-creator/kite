@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useApplyModal } from "@/context/ApplyModalContext";
 
 const productLinks = [
   { label: "Business Loan", href: "/products/business-loan", icon: "/icon-briefcase.svg" },
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const reduceMotion = useReducedMotion();
+  const { openModal } = useApplyModal();
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/5 bg-page/90 backdrop-blur-md">
@@ -116,6 +118,14 @@ export default function Navbar() {
           </li>
           <li>
             <Link
+              href="/co-lending"
+              className="text-[15px] font-semibold text-ink/75 transition-colors hover:text-royal-deep"
+            >
+              Co-Lending
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/about-us#contact"
               className="text-[15px] font-semibold text-ink/75 transition-colors hover:text-royal-deep"
             >
@@ -126,12 +136,13 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#apply"
-            className="hidden rounded-lg bg-coral px-6 py-2.5 text-[15px] font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98] md:inline-block"
+          <button
+            type="button"
+            onClick={() => openModal()}
+            className="hidden rounded-lg bg-coral px-6 py-2.5 text-[15px] font-bold text-white shadow-md shadow-coral/15 transition-all hover:scale-[1.02] hover:bg-coral/90 active:scale-[0.98] md:inline-block cursor-pointer"
           >
             Apply now
-          </a>
+          </button>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -246,6 +257,15 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
+                  href="/co-lending"
+                  onClick={() => setOpen(false)}
+                  className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-white"
+                >
+                  Co-Lending
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about-us#contact"
                   onClick={() => setOpen(false)}
                   className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-white"
@@ -256,13 +276,16 @@ export default function Navbar() {
 
 
               <li className="pt-2">
-                <a
-                  href="#apply"
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg bg-coral px-5 py-3 text-center text-base font-bold text-white shadow-md shadow-coral/15 hover:bg-coral/90"
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    openModal();
+                  }}
+                  className="block w-full rounded-lg bg-coral px-5 py-3 text-center text-base font-bold text-white shadow-md shadow-coral/15 hover:bg-coral/90 cursor-pointer"
                 >
                   Apply now
-                </a>
+                </button>
               </li>
             </ul>
           </motion.div>

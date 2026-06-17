@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ProductCta from "@/components/ProductCta";
 
 // Type definition for product data
 interface Highlight {
@@ -98,7 +99,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
   return {
     title: `${product.title} | Kite Finance`,
-    description: product.description
+    description: product.description,
+    alternates: {
+      canonical: `https://www.kitefinance.in/products/${slug}`,
+    },
+    openGraph: {
+      title: `${product.title} | Kite Finance`,
+      description: product.description,
+      url: `https://www.kitefinance.in/products/${slug}`,
+      siteName: "Kite Finance",
+      locale: "en_IN",
+      type: "website",
+    },
   };
 }
 
@@ -160,12 +172,7 @@ export default async function ProductPage({ params }: PageProps) {
                 </p>
                 
                 <div className="mt-8">
-                  <Link
-                    href="/#apply"
-                    className="inline-block rounded-lg bg-white px-8 py-3.5 text-[15px] font-bold text-[#0b2c5c] shadow-lg shadow-white/10 transition-all hover:scale-[1.02] hover:bg-slate-50 active:scale-[0.98]"
-                  >
-                    {product.ctaText}
-                  </Link>
+                  <ProductCta ctaText={product.ctaText} productTitle={product.title} />
                 </div>
               </div>
 
@@ -213,7 +220,7 @@ export default async function ProductPage({ params }: PageProps) {
             </div>
 
             <div className="mt-16 text-center text-xs text-ink/40 max-w-md mx-auto leading-relaxed">
-              * Rates, terms, and eligibility conditions are determined individually based on Jayshree Credit Services Private Limited internal policies and verification guidelines.
+              * Rates, terms, and eligibility conditions are determined individually based on Jayshree Credit Services Private Limited (formerly known as Jayshree Dealers Private Limited) internal policies and verification guidelines.
             </div>
           </div>
         </section>

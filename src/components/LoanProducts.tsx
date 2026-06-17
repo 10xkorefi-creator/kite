@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { useApplyModal } from "@/context/ApplyModalContext";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -55,6 +56,7 @@ const products = [
 
 export default function LoanProducts() {
   const reduceMotion = useReducedMotion();
+  const { openModal } = useApplyModal();
 
   const item = {
     hidden: { opacity: 0, y: reduceMotion ? 0 : 24 },
@@ -66,29 +68,40 @@ export default function LoanProducts() {
       variants={item}
       whileHover={reduceMotion ? {} : { y: -6, boxShadow: "0 20px 40px -15px rgba(30, 41, 59, 0.08)" }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      className={`flex flex-col rounded-xl bg-[#faf6f0] p-8 shadow-xs transition-all duration-300 group ${product.hoverClass}`}
+      className="flex flex-col rounded-xl bg-[#faf6f0] p-8 shadow-xs transition-all duration-300 group"
     >
       <div className="mb-6">
         <img
           src={product.icon}
           alt=""
           aria-hidden="true"
-          className="h-24 w-24 object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+          className="h-24 w-24 object-contain transition-all duration-300"
         />
       </div>
-      <h3 className="font-display text-[26px] sm:text-4xl font-semibold text-ink transition-colors duration-300 group-hover:text-white leading-tight">
+      <h3 className="font-display text-[26px] sm:text-4xl font-semibold text-ink transition-colors duration-300 leading-tight">
         {product.title}
       </h3>
-      <p className="mt-4 grow text-base leading-relaxed text-ink/75 transition-colors duration-300 group-hover:text-white/90">
+      <p className="mt-4 grow text-base leading-relaxed text-ink/75 transition-colors duration-300">
         {product.body}
       </p>
-      <Link
-        href={product.href}
-        className="mt-8 inline-flex items-center gap-1 font-bold text-royal-deep transition-colors duration-300 group-hover:text-white text-base underline decoration-1 underline-offset-4 group-hover:decoration-white/50"
-      >
-        <span className="group-hover:mr-1 transition-all duration-200">{product.cta.replace(" →", "")}</span>
-        <span className="group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
-      </Link>
+      {product.href === "/#apply" ? (
+        <button
+          type="button"
+          onClick={() => openModal()}
+          className="mt-8 inline-flex items-center gap-1 font-bold text-royal-deep transition-colors duration-300 text-base underline decoration-1 underline-offset-4 hover:text-royal-deep/80 text-left cursor-pointer"
+        >
+          <span className="group-hover:mr-1 transition-all duration-200">{product.cta.replace(" →", "")}</span>
+          <span className="group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+        </button>
+      ) : (
+        <Link
+          href={product.href}
+          className="mt-8 inline-flex items-center gap-1 font-bold text-royal-deep transition-colors duration-300 text-base underline decoration-1 underline-offset-4 hover:text-royal-deep/80"
+        >
+          <span className="group-hover:mr-1 transition-all duration-200">{product.cta.replace(" →", "")}</span>
+          <span className="group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+        </Link>
+      )}
     </motion.article>
   );
 
