@@ -94,9 +94,9 @@ export default function AboutUsPage() {
             {/* Subtle logo inside Hero */}
             <div className="flex justify-center mb-6">
               <img
-                src="/kite-finance-final-white-dark-bg.svg"
+                src="/newkitewashed.svg"
                 alt="Kite Finance Logo"
-                width={120}
+                width={166}
                 height={46}
                 className="h-12 w-auto opacity-90 filter drop-shadow-sm"
               />

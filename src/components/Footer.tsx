@@ -23,9 +23,9 @@ export default function Footer() {
           {/* Logo Column */}
           <div>
             <img
-              src="/kite-finance-final-white-dark-bg.svg"
+              src="/newkitewashed.svg"
               alt="Kite Finance"
-              width={146}
+              width={202}
               height={56}
               className="h-14 w-auto"
             />
@@ -117,8 +117,8 @@ export default function Footer() {
         <div className="mt-12 border-t border-white/10 pt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6 text-xs leading-relaxed text-white/50">
           <p className="max-w-md">
             Note: We are a Non-Banking Financial Company registered with Reserve Bank of India<br />
-            Company Name: Jayshree Dealers Private Limited<br />
-            Corporate Identity Number (CIN) :U45201WB1996PTC079873
+            Company Name: Jayshree Credit Services Private Limited<br />
+            Corporate Identity Number (CIN): U64920KA1996PTC202260
           </p>
           <p className="shrink-0">
             © 2024 All rights reserved | Kite Finance
