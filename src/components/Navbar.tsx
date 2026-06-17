@@ -122,14 +122,7 @@ export default function Navbar() {
               Contact
             </Link>
           </li>
-          <li>
-            <Link
-              href="/dashboard"
-              className="text-[15px] font-semibold text-ink/75 transition-colors hover:text-royal-deep"
-            >
-              Dashboard
-            </Link>
-          </li>
+
         </ul>
 
         <div className="flex items-center gap-2">
@@ -260,15 +253,7 @@ export default function Navbar() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/dashboard"
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-white"
-                >
-                  Dashboard
-                </Link>
-              </li>
+
 
               <li className="pt-2">
                 <a
