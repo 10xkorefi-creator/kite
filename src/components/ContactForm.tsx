@@ -14,6 +14,7 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [agreed, setAgreed] = useState(true);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -213,6 +214,34 @@ export default function ContactForm() {
           )}
         </div>
 
+        {/* Privacy Policy Checkbox */}
+        <div className="flex items-start px-1">
+          <div className="flex h-5 items-center">
+            <input
+              id="privacy"
+              name="privacy"
+              type="checkbox"
+              checked={agreed}
+              onChange={(e) => setAgreed(e.target.checked)}
+              className="h-4 w-4 rounded border-ink/10 text-royal focus:ring-royal cursor-pointer"
+            />
+          </div>
+          <div className="ml-3 text-sm">
+            <label htmlFor="privacy" className="font-semibold text-ink/70 cursor-pointer">
+              I agree to the{" "}
+              <a
+                href="https://www.kitefinance.in/_files/ugd/eb3c0c_bcd9a22d6c1a4859a78aaef7c727b400.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-royal hover:underline font-bold"
+              >
+                Privacy Policy
+              </a>
+              .
+            </label>
+          </div>
+        </div>
+
         {status === "error" && (
           <div className="rounded-lg bg-red-50 p-4 border border-red-100 flex items-center gap-3 text-red-700 text-sm">
             <AlertCircle className="h-5 w-5 shrink-0" />
@@ -222,7 +251,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          disabled={status === "submitting"}
+          disabled={status === "submitting" || !agreed}
           className="w-full inline-flex items-center justify-center rounded-lg bg-coral py-4 text-base font-bold text-white shadow-lg shadow-coral/15 transition-all hover:scale-[1.01] hover:bg-coral/95 active:scale-[0.99] disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           {status === "submitting" ? (
