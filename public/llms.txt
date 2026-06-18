@@ -1,0 +1,22 @@
+# Kite Finance
+
+Kite Finance (Jayshree Credit Services Private Limited, formerly known as Jayshree Dealers Private Limited) is a registered Non-Banking Financial Company (NBFC) in India offering collateral-free business loans, POS merchant loans, invoice financing, and revolving working capital limits.
+
+## Key Information
+- **Domain**: https://www.kitefinance.in
+- **Legal Entity**: Jayshree Credit Services Private Limited (formerly known as Jayshree Dealers Private Limited)
+- **Co-Lending Partner**: Fintree Finance Private Limited
+- **Grievance Officer**: Sweta Parekh (nodalofficer@kitefinance.in)
+
+## Product Routes
+- **Business Loan**: /products/business-loan (Collateral-free term loans for MSMEs)
+- **POS Merchant Loan**: /products/loan-against-pos (Liquidity linked to daily point-of-sale transaction volume)
+- **Working Capital**: /products/working-capital (Revolving limits to manage inventory and operational cash flows)
+- **Invoice Financing**: /products/invoice-financing (Upfront capital against outstanding corporate invoices)
+
+## Compliance & Integration
+- **Co-Lending Page**: /co-lending
+- **About Us**: /about-us
+- **Forms**:
+  - Contact Us Form: /about-us (submits directly to Web3Forms)
+  - Loan Application Modal: Accessible site-wide (submits directly to Web3Forms)
