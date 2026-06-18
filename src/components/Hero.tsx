@@ -58,10 +58,10 @@ export default function Hero() {
       {/* Desktop Background Split Layout */}
       <div className="hidden lg:flex absolute inset-0 z-0 select-none pointer-events-none">
         {/* Left Side: Solid Light Panel casting shadow to the right */}
-        <div className="w-[55%] bg-[#fafafb] h-full shadow-[25px_0_40px_-15px_rgba(0,0,0,0.08)] border-r border-slate-200/60 z-10" />
+        <div className="w-1/2 bg-[#fafafb] h-full shadow-[25px_0_40px_-15px_rgba(0,0,0,0.08)] border-r border-slate-200/60 z-10" />
 
         {/* Right Side: Image Slider */}
-        <div className="w-[45%] h-full relative overflow-hidden bg-slate-100 z-0">
+        <div className="w-1/2 h-full relative overflow-hidden bg-slate-100 z-0">
           <AnimatePresence initial={false} mode="popLayout">
             <motion.div
               key={currentSlide}
