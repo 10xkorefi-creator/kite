@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
-import { sendContactForm } from "@/app/actions";
+// Client-side direct submission is used here because Web3Forms endpoint is protected by Cloudflare challenge
+// which blocks server-side requests in Node environments.
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -27,8 +28,8 @@ export default function ContactForm() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
-    if (formData.phone.trim() && !/^\+?[0-9\s\-()]{10,15}$/.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid phone number";
+    if (formData.phone.trim() && formData.phone.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits";
     }
     if (!formData.message.trim()) {
       newErrors.message = "Please enter a message";
@@ -39,6 +40,14 @@ export default function ContactForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    if (name === "phone") {
+      const sanitized = value.replace(/\D/g, "").slice(0, 10);
+      setFormData((prev) => ({ ...prev, [name]: sanitized }));
+      if (errors[name]) {
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+      }
+      return;
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -51,15 +60,40 @@ export default function ContactForm() {
 
     setStatus("submitting");
     try {
-      await sendContactForm(formData);
-      setStatus("success");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "984b59c3-f402-4bfe-9d9b-d72a60a2c099";
+      const payload = {
+        access_key: accessKey,
+        subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName || ""}`,
+        from_name: "Kite Finance Website",
+        name: `${formData.firstName} ${formData.lastName || ""}`,
+        email: formData.email,
+        phone: formData.phone ? `+91 ${formData.phone}` : "N/A",
+        message: formData.message,
+      };
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setStatus("success");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        console.error("Web3Forms API error response:", result);
+        setStatus("error");
+      }
     } catch (error) {
       console.error("Error submitting contact form:", error);
       setStatus("error");
@@ -167,19 +201,24 @@ export default function ContactForm() {
             <label htmlFor="phone" className="block text-sm font-bold text-ink/75 mb-2">
               Phone
             </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Phone number"
-              className={`w-full rounded-lg border px-4 py-3 text-[15px] outline-none transition-all placeholder:text-ink/30 ${
-                errors.phone
-                  ? "border-red-500 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                  : "border-ink/10 focus:border-royal focus:ring-1 focus:ring-royal"
-              }`}
-            />
+            <div className={`flex rounded-lg border overflow-hidden transition-all focus-within:ring-1 ${
+              errors.phone
+                ? "border-red-500 bg-red-50/20 focus-within:border-red-500 focus-within:ring-red-500"
+                : "border-ink/10 focus-within:border-royal focus-within:ring-royal"
+            }`}>
+              <div className="flex items-center bg-slate-50 px-3.5 border-r border-ink/10 text-ink/50 font-semibold select-none text-[15px]">
+                +91
+              </div>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="98765 43210"
+                className="w-full px-4 py-3 text-[15px] outline-none placeholder:text-ink/30 bg-transparent"
+              />
+            </div>
             {errors.phone && (
               <p className="mt-1.5 flex items-center gap-1 text-xs text-red-500 font-semibold">
                 <AlertCircle className="h-3 w-3" />

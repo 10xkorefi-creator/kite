@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { useApplyModal } from "@/context/ApplyModalContext";
-import { sendApplyForm } from "@/app/actions";
+// Client-side direct submission is used here because Web3Forms endpoint is protected by Cloudflare challenge
+// which blocks server-side requests in Node environments.
 
 export default function ApplyModal() {
   const { isOpen, prefilledProduct, closeModal } = useApplyModal();
@@ -58,8 +59,8 @@ export default function ApplyModal() {
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (!/^\+?[0-9\s\-()]{10,15}$/.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid phone number";
+    } else if (formData.phone.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits";
     }
     if (!formData.businessName.trim()) {
       newErrors.businessName = "Business name is required";
@@ -73,6 +74,14 @@ export default function ApplyModal() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    if (name === "phone") {
+      const sanitized = value.replace(/\D/g, "").slice(0, 10);
+      setFormData((prev) => ({ ...prev, [name]: sanitized }));
+      if (errors[name]) {
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+      }
+      return;
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -85,8 +94,35 @@ export default function ApplyModal() {
 
     setStatus("submitting");
     try {
-      await sendApplyForm({ ...formData, prefilledProduct });
-      setStatus("success");
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "984b59c3-f402-4bfe-9d9b-d72a60a2c099";
+      const payload = {
+        access_key: accessKey,
+        subject: `New Loan Application: ${formData.businessName} (${formData.loanAmount})`,
+        from_name: "Kite Finance Website",
+        product: prefilledProduct || "General Funding",
+        applicant_name: `${formData.firstName} ${formData.lastName || ""}`,
+        email: formData.email,
+        phone: `+91 ${formData.phone}`,
+        business_name: formData.businessName,
+        requested_amount: formData.loanAmount,
+      };
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setStatus("success");
+      } else {
+        console.error("Web3Forms API error response:", result);
+        setStatus("error");
+      }
     } catch (error) {
       console.error("Error submitting loan application:", error);
       setStatus("error");
@@ -223,17 +259,24 @@ export default function ApplyModal() {
                       <label htmlFor="modal-phone" className="block text-xs font-bold text-ink/75 mb-1.5">
                         Mobile Number *
                       </label>
-                      <input
-                        type="tel"
-                        id="modal-phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Phone number"
-                        className={`w-full rounded-lg border px-3.5 py-2.5 text-sm outline-none transition-all placeholder:text-ink/30 ${
-                          errors.phone ? "border-red-500 bg-red-50/20" : "border-ink/10 focus:border-royal"
-                        }`}
-                      />
+                      <div className={`flex rounded-lg border overflow-hidden transition-all focus-within:ring-1 ${
+                        errors.phone
+                          ? "border-red-500 bg-red-50/20 focus-within:border-red-500 focus-within:ring-red-500"
+                          : "border-ink/10 focus-within:border-royal focus-within:ring-royal"
+                      }`}>
+                        <div className="flex items-center bg-slate-50 px-3 border-r border-ink/10 text-ink/50 font-semibold select-none text-sm">
+                          +91
+                        </div>
+                        <input
+                          type="tel"
+                          id="modal-phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="98765 43210"
+                          className="w-full px-3.5 py-2.5 text-sm outline-none placeholder:text-ink/30 bg-transparent"
+                        />
+                      </div>
                       {errors.phone && (
                         <p className="mt-1 flex items-center gap-1 text-[11px] text-red-500 font-semibold">
                           <AlertCircle className="h-3 w-3" />
