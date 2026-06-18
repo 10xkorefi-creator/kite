@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 export default function Preloader() {
-  const [mounted, setMounted] = useState(false);
-  const [showPreloader, setShowPreloader] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(true);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    setMounted(true);
-    // Check if preloader has already played in this browser session
+    // Check session storage on client mount
     const played = sessionStorage.getItem("kite-preloader-played");
-    if (!played) {
-      setShowPreloader(true);
+    if (played === "true") {
+      setShowPreloader(false);
+    } else {
       const timer = setTimeout(() => {
         setShowPreloader(false);
         sessionStorage.setItem("kite-preloader-played", "true");
@@ -21,74 +21,97 @@ export default function Preloader() {
     }
   }, []);
 
-  if (!mounted) return null;
-
   return (
-    <AnimatePresence>
-      {showPreloader && (
-        <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          exit={{ 
-            y: "-100%", 
-            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
-          }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0f2a4a] text-white"
-        >
-          {/* Logo container */}
-          <div className="flex flex-col items-center">
-            {/* Custom animated SVG of the Kite logo */}
-            <svg 
-              className="w-24 h-24 sm:w-28 sm:h-28" 
-              viewBox="-40 -50 80 115" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Left Leaf (White) - hide/show pulse */}
-              <motion.polygon 
-                points="-2,-32 -32,4 -2,60" 
-                fill="#ffffff"
-                animate={{ opacity: [0.15, 1, 0.15] }}
-                transition={{ 
-                  duration: 1.2, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
-              {/* Right Leaf (Blue) - alternating hide/show pulse */}
-              <motion.polygon 
-                points="2,-42 32,-6 2,50" 
-                fill="#38bdf8"
-                animate={{ opacity: [1, 0.15, 1] }}
-                transition={{ 
-                  duration: 1.2, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
-            </svg>
+    <>
+      {/* Inline style and blocking script to hide preloader instantly if already played */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .preloader-played #global-preloader {
+              display: none !important;
+            }
+          `
+        }}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              if (sessionStorage.getItem('kite-preloader-played') === 'true') {
+                document.documentElement.classList.add('preloader-played');
+              }
+            } catch (e) {}
+          `
+        }}
+      />
 
-            {/* Wordmark fading in */}
-            <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 0.9, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-              className="mt-6 text-sm font-bold uppercase tracking-[0.25em] text-white/90 font-sans"
-            >
-              Kite Finance
-            </motion.h1>
+      <AnimatePresence>
+        {showPreloader && (
+          <motion.div
+            id="global-preloader"
+            initial={{ opacity: 1, y: 0 }}
+            exit={{ 
+              y: "-100%", 
+              transition: { duration: reduceMotion ? 0 : 0.8, ease: [0.16, 1, 0.3, 1] } 
+            }}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0f2a4a] text-white"
+          >
+            {/* Logo container */}
+            <div className="flex flex-col items-center">
+              {/* Custom animated SVG of the Kite logo */}
+              <svg 
+                className="w-24 h-24 sm:w-28 sm:h-28" 
+                viewBox="-40 -50 80 115" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Left Leaf (White) - hide/show pulse */}
+                <motion.polygon 
+                  points="-2,-32 -32,4 -2,60" 
+                  fill="#ffffff"
+                  animate={reduceMotion ? { opacity: 0.9 } : { opacity: [0.15, 1, 0.15] }}
+                  transition={{ 
+                    duration: 1.2, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                />
+                {/* Right Leaf (Blue) - alternating hide/show pulse */}
+                <motion.polygon 
+                  points="2,-42 32,-6 2,50" 
+                  fill="#38bdf8"
+                  animate={reduceMotion ? { opacity: 0.9 } : { opacity: [1, 0.15, 1] }}
+                  transition={{ 
+                    duration: 1.2, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                />
+              </svg>
 
-            {/* Subtle animated bar */}
-            <div className="mt-8 w-24 h-[2px] bg-white/10 rounded-full overflow-hidden">
-              <motion.div 
-                initial={{ left: "-100%" }}
-                animate={{ left: "100%" }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="relative h-full bg-sky-400 w-12"
-              />
+              {/* Wordmark fading in */}
+              <motion.h1
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 0.9, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+                className="mt-6 text-sm font-bold uppercase tracking-[0.25em] text-white/90 font-sans"
+              >
+                Kite Finance
+              </motion.h1>
+
+              {/* Subtle animated bar */}
+              <div className="mt-8 w-24 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+                <motion.div 
+                  initial={{ left: "-100%" }}
+                  animate={reduceMotion ? { left: "0%" } : { left: "100%" }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  className="absolute top-0 bottom-0 bg-sky-400 w-12"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

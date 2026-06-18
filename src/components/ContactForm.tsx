@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { sendContactForm } from "@/app/actions";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -49,9 +50,8 @@ export default function ContactForm() {
     if (!validate()) return;
 
     setStatus("submitting");
-    // Simulate API request delay
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await sendContactForm(formData);
       setStatus("success");
       setFormData({
         firstName: "",
@@ -60,7 +60,8 @@ export default function ContactForm() {
         phone: "",
         message: "",
       });
-    } catch {
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
       setStatus("error");
     }
   };

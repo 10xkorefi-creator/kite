@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { useApplyModal } from "@/context/ApplyModalContext";
+import { sendApplyForm } from "@/app/actions";
 
 export default function ApplyModal() {
   const { isOpen, prefilledProduct, closeModal } = useApplyModal();
@@ -84,10 +85,10 @@ export default function ApplyModal() {
 
     setStatus("submitting");
     try {
-      // Simulate API submit delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await sendApplyForm({ ...formData, prefilledProduct });
       setStatus("success");
-    } catch {
+    } catch (error) {
+      console.error("Error submitting loan application:", error);
       setStatus("error");
     }
   };
