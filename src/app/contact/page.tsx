@@ -56,7 +56,7 @@ export default function ContactPortalPage() {
         <section className="py-16 -mt-8 relative z-20">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              
+
               {/* Card 1: Loan Services */}
               <div className="flex flex-col justify-between rounded-3xl border border-royal/10 bg-white p-8 shadow-xl shadow-royal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-royal/30">
                 <div>
@@ -69,7 +69,7 @@ export default function ContactPortalPage() {
                   <p className="text-ink/70 text-sm leading-relaxed mb-6">
                     Need working capital, business loans, POS loans, or invoice financing? Contact our lending operations division for assistance with active applications, documentation requirements, or customized financing structures.
                   </p>
-                  
+
                   <div className="space-y-3.5 border-t border-slate-100 pt-6 mb-8 text-sm">
                     <div className="flex items-center gap-3 text-ink/75">
                       <Clock className="h-4.5 w-4.5 text-royal/70 shrink-0" />
@@ -81,7 +81,7 @@ export default function ContactPortalPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <Link
                   href="/contact/loans"
                   className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-royal py-4 text-base font-bold text-white shadow-lg shadow-royal/15 transition-all hover:bg-royal-deep hover:scale-[1.01] active:scale-[0.99]"
@@ -98,11 +98,10 @@ export default function ContactPortalPage() {
                     <LayoutDashboard className="h-7 w-7" />
                   </div>
                   <h2 className="font-display text-2xl font-bold text-ink mb-3">
-                    Analytics Dashboard Support
+                    PFM Dashboard Support
                   </h2>
                   <p className="text-ink/70 text-sm leading-relaxed mb-6">
-                    Get assistance with linking your financial accounts, viewing your consolidated financial dashboard, understanding spending insights, budgeting tools, expense categorization, and analytics-based recommendations through our platform.
-                  </p>
+                    Get assistance with linking your financial accounts, viewing your consolidated financial dashboard, understanding spending insights, budgeting tools, expense categorization, and analytics-based recommendations through our platform.</p>
 
                   <div className="space-y-3.5 border-t border-slate-100 pt-6 mb-8 text-sm">
                     <div className="flex items-center gap-3 text-ink/75">
@@ -133,7 +132,7 @@ export default function ContactPortalPage() {
         <section className="py-16 bg-white border-t border-slate-100">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-5 items-start">
-              
+
               {/* Statutory Info Card (Grievance Redressal) */}
               <div className="lg:col-span-3 rounded-2xl border border-slate-100 bg-[#fafafb]/30 p-8">
                 <div className="flex items-center gap-3 mb-6">
