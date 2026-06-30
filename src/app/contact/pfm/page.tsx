@@ -34,14 +34,6 @@ const faqs = [
     a: "You can securely link your eligible financial accounts through our partnered services. Simply follow the on-screen instructions to provide your consent for securely sharing your financial information to enable the PFM Dashboard."
   },
   {
-    q: "Is my bank credential or statement data safe?",
-    a: "Yes. Your financial information is securely handled and protected using appropriate security measures. The information shared is used only to provide and improve the PFM Dashboard and related services. Kite Finance cannot initiate transactions or access your funds"
-  },
-  {
-    q: "Why are some of my transactions categorized incorrectly?",
-    a: "Your transactions are automatically categorized to help you better understand your finances. If a transaction is categorized incorrectly, you can update the category, and the dashboard will use your input to improve future categorization."
-  },
-  {
     q: "How do I revoke consent for data sharing?",
     a: "You remain in control of your financial information. You can withdraw your consent at any time through the partnered service used to provide your consent. Once your consent is withdrawn, no new financial information will be accessed."
   }
@@ -66,11 +58,11 @@ export default function ContactPfmPage() {
               PFM Dashboard Tech Support
             </div>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Contact PFM Dashboard
+              Contact for PFM Dashboard
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/80 leading-relaxed font-medium">
-              Having issues linking bank statements, tracking expenses, or have security questions? Let our dashboard support team help you.
-            </p>
+              Have any questions?
+              Let our dashboard support team help you            </p>
           </div>
         </section>
 
@@ -78,7 +70,7 @@ export default function ContactPfmPage() {
         <section className="py-20 bg-slate-50/50">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-5 items-start">
-              
+
               {/* Left Column: Coordinates & FAQs */}
               <div className="lg:col-span-2 space-y-10">
                 <div>

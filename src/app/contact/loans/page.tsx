@@ -65,7 +65,7 @@ export default function ContactLoansPage() {
               Lending & Credit Support
             </div>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Contact Loan Services
+              Contact for Loan Services
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/80 leading-relaxed font-medium">
               Have questions about MSME financing, active loan applications, or repayment queries? Let our loan experts assist you.
@@ -77,7 +77,7 @@ export default function ContactLoansPage() {
         <section className="py-20 bg-slate-50/50">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-5 items-start">
-              
+
               {/* Left Column: Coordinates & FAQs */}
               <div className="lg:col-span-2 space-y-10">
                 <div>
