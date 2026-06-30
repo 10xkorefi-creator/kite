@@ -98,10 +98,10 @@ export default function ContactPortalPage() {
                     <LayoutDashboard className="h-7 w-7" />
                   </div>
                   <h2 className="font-display text-2xl font-bold text-ink mb-3">
-                    PFM Dashboard Support
+                    Analytics Dashboard Support
                   </h2>
                   <p className="text-ink/70 text-sm leading-relaxed mb-6">
-                    Facing issues linking bank statements, navigating the expense tracker, understanding categorization, or have questions about our secure account aggregator platform? Reach out to our dashboard tech team.
+                    Get assistance with linking your financial accounts, viewing your consolidated financial dashboard, understanding spending insights, budgeting tools, expense categorization, and analytics-based recommendations through our platform.
                   </p>
 
                   <div className="space-y-3.5 border-t border-slate-100 pt-6 mb-8 text-sm">
@@ -111,7 +111,7 @@ export default function ContactPortalPage() {
                     </div>
                     <div className="flex items-center gap-3 text-ink/75">
                       <MessageSquare className="h-4.5 w-4.5 text-emerald-500/70 shrink-0" />
-                      <span>Bank statement aggregator help</span>
+                      <span>Analytics Dashboard support</span>
                     </div>
                   </div>
                 </div>

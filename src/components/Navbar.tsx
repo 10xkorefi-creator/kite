@@ -15,7 +15,7 @@ const productLinks = [
 
 const contactLinks = [
   { label: "Loan Services Support", href: "/contact/loans", description: "Business loans, credit & payments support" },
-  { label: "PFM Dashboard Support", href: "/contact/pfm", description: "Bank aggregation & tech help desk" },
+  { label: "Analytics Dashboard Support", href: "/contact/pfm", description: "Analytics & tech help desk" },
 ];
 
 export default function Navbar() {

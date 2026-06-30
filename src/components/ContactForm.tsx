@@ -301,7 +301,7 @@ export default function ContactForm({ defaultService = "loans" }: ContactFormPro
             <label htmlFor="privacy" className="font-semibold text-ink/70 cursor-pointer">
               I agree to the{" "}
               <a
-                href="/doc/Privacy%20Policy%20Jayshree%20(New)%20.pdf"
+                href="/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-royal hover:underline font-bold"

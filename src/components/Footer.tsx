@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const legalLinks = [
   { label: "About Us", href: "/about-us" },
-  { label: "Privacy Policy", href: "/doc/Privacy%20Policy%20Jayshree%20(New)%20.pdf" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Fair Practice Code for Collection and Recovery", href: "/doc/NBFC%20Fair%20practices%20for%20Code%20Collection%20and%20Recovery%20(New).pdf" },
   { label: "Fair Practice Code", href: "/doc/Fair%20Practices%20Code%20(New).pdf" },
   { label: "Code of conduct for DSA & DMA", href: "/doc/Code%20of%20Conduct%20for%20DSA%20%26%20MSA%20(New).pdf" },

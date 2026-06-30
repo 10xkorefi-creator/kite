@@ -31,19 +31,19 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How do I link my bank accounts to the PFM Dashboard?",
-    a: "You can securely link accounts using the Account Aggregator (AA) framework. Simply authenticate via OTP sent to your Aadhaar-linked mobile number to consent to read-only data sharing."
+    a: "You can securely link your eligible financial accounts through our partnered services. Simply follow the on-screen instructions to provide your consent for securely sharing your financial information to enable the PFM Dashboard."
   },
   {
     q: "Is my bank credential or statement data safe?",
-    a: "Absolutely. We employ bank-grade AES-256 encryption. We only have read-only access to analyze statements; no one at Kite Finance can execute transactions or access your funds."
+    a: "Yes. Your financial information is securely handled and protected using appropriate security measures. The information shared is used only to provide and improve the PFM Dashboard and related services. Kite Finance cannot initiate transactions or access your funds"
   },
   {
     q: "Why are some of my transactions categorized incorrectly?",
-    a: "Our smart AI engine auto-categorizes your cash flows. If a transaction is incorrectly marked, you can easily recategorize it manually on the dashboard, and our model will learn your preference."
+    a: "Your transactions are automatically categorized to help you better understand your finances. If a transaction is categorized incorrectly, you can update the category, and the dashboard will use your input to improve future categorization."
   },
   {
     q: "How do I revoke consent for data sharing?",
-    a: "You have complete control. You can revoke data consent at any time directly through your Account Aggregator app or from the settings panel on your Kite PFM dashboard."
+    a: "You remain in control of your financial information. You can withdraw your consent at any time through the partnered service used to provide your consent. Once your consent is withdrawn, no new financial information will be accessed."
   }
 ];
 
@@ -99,8 +99,8 @@ export default function ContactPfmPage() {
                     <div>
                       <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Tech Desk Email</h4>
                       <p className="mt-1 text-sm">
-                        <a href="mailto:gro@kitefinance.in" className="text-emerald-500 hover:underline font-bold">
-                          gro@kitefinance.in
+                        <a href="mailto:tech@kitefinance.in" className="text-emerald-500 hover:underline font-bold">
+                          tech@kitefinance.in
                         </a>
                       </p>
                       <span className="text-[11px] text-ink/50 font-medium flex items-center gap-1.5 mt-0.5">
@@ -117,7 +117,7 @@ export default function ContactPfmPage() {
                       <h4 className="font-bold text-sm uppercase tracking-wider">Privacy Guaranteed</h4>
                     </div>
                     <p className="text-xs text-ink/75 leading-relaxed">
-                      We operate strictly within the RBI-approved Account Aggregator framework. Consent is fully granular, revocable, and data transmission uses secure end-to-end encrypted pipelines.
+                      We operate strictly secure within the RBI-approved framework. Consent is fully granular, revocable, and data transmission uses secure end-to-end encrypted pipelines.
                     </p>
                   </div>
                 </div>
