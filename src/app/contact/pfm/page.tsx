@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "How do I link my bank accounts to the PFM Dashboard?",
+    q: "How do I enable the PFM Dashboard?",
     a: "You can securely link your eligible financial accounts through our partnered services. Simply follow the on-screen instructions to provide your consent for securely sharing your financial information to enable the PFM Dashboard."
   },
   {
