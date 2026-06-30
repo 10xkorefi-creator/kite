@@ -5,12 +5,17 @@ import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 // Client-side direct submission is used here because Web3Forms endpoint is protected by Cloudflare challenge
 // which blocks server-side requests in Node environments.
 
-export default function ContactForm() {
+interface ContactFormProps {
+  defaultService?: "loans" | "pfm";
+}
+
+export default function ContactForm({ defaultService = "loans" }: ContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
+    serviceType: defaultService,
     message: "",
   });
 
@@ -38,7 +43,7 @@ export default function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     if (name === "phone") {
       const sanitized = value.replace(/\D/g, "").slice(0, 10);
@@ -68,6 +73,7 @@ export default function ContactForm() {
         name: `${formData.firstName} ${formData.lastName || ""}`,
         email: formData.email,
         phone: formData.phone ? `+91 ${formData.phone}` : "N/A",
+        "Service Type": formData.serviceType === "pfm" ? "PFM Dashboard Support" : "Loan Services Support",
         message: formData.message,
       };
 
@@ -88,6 +94,7 @@ export default function ContactForm() {
           lastName: "",
           email: "",
           phone: "",
+          serviceType: defaultService,
           message: "",
         });
       } else {
@@ -225,6 +232,30 @@ export default function ContactForm() {
                 {errors.phone}
               </p>
             )}
+          </div>
+        </div>
+
+        {/* Service Type Dropdown */}
+        <div>
+          <label htmlFor="serviceType" className="block text-sm font-bold text-ink/75 mb-2">
+            Service Type
+          </label>
+          <div className="relative">
+            <select
+              id="serviceType"
+              name="serviceType"
+              value={formData.serviceType}
+              onChange={handleChange}
+              className="w-full rounded-lg border border-ink/10 px-4 py-3 text-[15px] outline-none transition-all focus:border-royal focus:ring-1 focus:ring-royal bg-white appearance-none cursor-pointer text-ink font-medium"
+            >
+              <option value="loans">Loan Services Support</option>
+              <option value="pfm">PFM Dashboard Support</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-ink/50">
+              <svg className="fill-current h-4.5 w-4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+              </svg>
+            </div>
           </div>
         </div>
 

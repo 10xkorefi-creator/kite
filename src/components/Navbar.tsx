@@ -13,10 +13,17 @@ const productLinks = [
   { label: "Invoice Financing", href: "/products/invoice-financing", icon: "/icon-document-check.svg" },
 ];
 
+const contactLinks = [
+  { label: "Loan Services Support", href: "/contact/loans", description: "Business loans, credit & payments support" },
+  { label: "PFM Dashboard Support", href: "/contact/pfm", description: "Bank aggregation & tech help desk" },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileContactOpen, setMobileContactOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const { openModal } = useApplyModal();
 
@@ -124,13 +131,62 @@ export default function Navbar() {
               Co-Lending
             </Link>
           </li>
-          <li>
-            <Link
-              href="/about-us#contact"
-              className="text-[15px] font-semibold text-ink/75 transition-colors hover:text-royal-deep"
+          {/* Contact Dropdown */}
+          <li
+            className="relative"
+            onMouseEnter={() => setContactDropdownOpen(true)}
+            onMouseLeave={() => setContactDropdownOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setContactDropdownOpen((v) => !v)}
+              aria-expanded={contactDropdownOpen}
+              className="inline-flex items-center gap-1 text-[15px] font-semibold text-ink/75 transition-colors hover:text-royal-deep cursor-pointer"
             >
               Contact
-            </Link>
+              <svg
+                className={`h-4 w-4 transition-transform duration-200 ${contactDropdownOpen ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <AnimatePresence>
+              {contactDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-80 rounded-xl border border-ink/5 bg-white p-3 shadow-xl z-50"
+                >
+                  <div className="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-ink/40 font-display border-b border-ink/5 mb-2 flex justify-between items-center">
+                    <span>Choose support area:</span>
+                    <Link href="/contact" onClick={() => setContactDropdownOpen(false)} className="text-[10px] text-royal hover:underline normal-case font-bold">
+                      View all
+                    </Link>
+                  </div>
+                  <ul className="space-y-1">
+                    {contactLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
+                          onClick={() => setContactDropdownOpen(false)}
+                          className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-50 text-left cursor-pointer"
+                        >
+                          <div className="text-sm font-bold text-ink">{link.label}</div>
+                          <div className="text-[11px] text-ink/50 font-medium mt-0.5">{link.description}</div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </li>
 
         </ul>
@@ -264,14 +320,62 @@ export default function Navbar() {
                   Co-Lending
                 </Link>
               </li>
+              {/* Contact Mobile Collapsible */}
               <li>
-                <Link
-                  href="/about-us#contact"
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-white"
+                <button
+                  type="button"
+                  onClick={() => setMobileContactOpen((v) => !v)}
+                  className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-white cursor-pointer"
                 >
-                  Contact
-                </Link>
+                  <span>Contact</span>
+                  <svg
+                    className={`h-4 w-4 text-ink/50 transition-transform duration-200 ${mobileContactOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <AnimatePresence>
+                  {mobileContactOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="overflow-hidden pl-6 pr-3 py-1 space-y-1 bg-slate-50/50 rounded-xl mt-1"
+                    >
+                      {contactLinks.map((link) => (
+                        <li key={link.label}>
+                          <Link
+                            href={link.href}
+                            onClick={() => {
+                              setOpen(false);
+                              setMobileContactOpen(false);
+                            }}
+                            className="block rounded-xl px-3 py-2 text-sm font-semibold text-ink/80 hover:bg-white hover:text-ink"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link
+                          href="/contact"
+                          onClick={() => {
+                            setOpen(false);
+                            setMobileContactOpen(false);
+                          }}
+                          className="block rounded-xl px-3 py-2 text-sm font-bold text-royal hover:bg-white"
+                        >
+                          All Contacts Portal
+                        </Link>
+                      </li>
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
               </li>
 
 
