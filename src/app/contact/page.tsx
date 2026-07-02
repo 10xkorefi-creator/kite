@@ -101,7 +101,7 @@ export default function ContactPortalPage() {
                     PFM Dashboard Support
                   </h2>
                   <p className="text-ink/70 text-sm leading-relaxed mb-6">
-                    Get assistance with linking your financial accounts, viewing your consolidated financial dashboard, understanding spending insights, budgeting tools, expense categorization, and analytics-based recommendations through our platform.</p>
+                    Get assistance with setting up your PFM Dashboard and understanding your financial insights in one place.</p>
 
                   <div className="space-y-3.5 border-t border-slate-100 pt-6 mb-8 text-sm">
                     <div className="flex items-center gap-3 text-ink/75">
