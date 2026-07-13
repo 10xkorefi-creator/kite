@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Building2,
   LayoutDashboard,
@@ -60,8 +61,8 @@ export default function ContactPortalPage() {
               {/* Card 1: Loan Services */}
               <div className="flex flex-col justify-between rounded-3xl border border-royal/10 bg-white p-8 shadow-xl shadow-royal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-royal/30">
                 <div>
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-royal/10 text-royal mb-6">
-                    <Building2 className="h-7 w-7" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-royal/5 mb-6">
+                    <Image src="/icon-briefcase.svg" alt="Briefcase Icon" width={32} height={32} />
                   </div>
                   <h2 className="font-display text-2xl font-bold text-ink mb-3">
                     Loan Services Support
@@ -95,8 +96,8 @@ export default function ContactPortalPage() {
               <div className="flex flex-col justify-between rounded-3xl border border-emerald-500/10 bg-white p-8 shadow-xl shadow-emerald-500/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-emerald-500/30">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500">
-                      <LayoutDashboard className="h-7 w-7" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50/50">
+                      <Image src="/icon-chart-growth.svg" alt="Chart Growth Icon" width={32} height={32} />
                     </div>
                     <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700 border border-emerald-200/30">
                       Coming Soon

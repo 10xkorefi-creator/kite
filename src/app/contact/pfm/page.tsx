@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import Image from "next/image";
 import {
   Mail,
   ShieldAlert,
@@ -93,8 +94,8 @@ export default function ContactPfmPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Feature 1: Business Financial Health */}
               <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
-                  <Activity className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 mb-5">
+                  <Image src="/icon-chart-growth.svg" alt="Business Financial Health Icon" width={28} height={28} />
                 </div>
                 <h3 className="font-display text-lg font-bold text-ink mb-2">
                   Business Financial Health
@@ -106,8 +107,8 @@ export default function ContactPfmPage() {
 
               {/* Feature 2: Working Capital Analysis */}
               <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
-                  <Wallet className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 mb-5">
+                  <Image src="/icon-money-bag.svg" alt="Working Capital Icon" width={28} height={28} />
                 </div>
                 <h3 className="font-display text-lg font-bold text-ink mb-2">
                   Working Capital Analysis
@@ -119,8 +120,8 @@ export default function ContactPfmPage() {
 
               {/* Feature 3: Cash Flow Insights & Forecasting */}
               <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
-                  <TrendingUp className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 mb-5">
+                  <Image src="/icon-briefcase.svg" alt="Cash Flow Icon" width={28} height={28} />
                 </div>
                 <h3 className="font-display text-lg font-bold text-ink mb-2">
                   Cash Flow Insights & Forecasting
@@ -132,8 +133,8 @@ export default function ContactPfmPage() {
 
               {/* Feature 4: Transactional Intelligence */}
               <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
-                  <Database className="h-6 w-6" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 mb-5">
+                  <Image src="/icon-document-check.svg" alt="Transactional Intelligence Icon" width={28} height={28} />
                 </div>
                 <h3 className="font-display text-lg font-bold text-ink mb-2">
                   Transactional Intelligence
