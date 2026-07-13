@@ -29,20 +29,20 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "What is the standard turnaround time for loans?",
-    a: "Once you upload your verified documents, our team processes and disburses approved loan funds in as little as 72 hours."
+    q: "How does the application process work?",
+    a: "Our evaluation process is designed to be streamlined. You can submit your interest online, and we will review the details provided to determine the next steps."
   },
   {
-    q: "What documents are required to apply?",
-    a: "We only require digital documents including last 12 months bank statements, GST registration certificates, and basic KYC (PAN & Aadhaar) of the promoters."
+    q: "What factors affect eligibility?",
+    a: "Eligibility is assessed based on various parameters related to your profile and operations. We review multiple indicators to see how we can assist you."
   },
   {
-    q: "Are there any foreclosure or prepayment charges?",
-    a: "No, Kite Finance believes in transparent terms. There are zero foreclosure or prepayment fees for early settlement of business loans."
+    q: "How are the terms determined?",
+    a: "Terms and conditions are customized and depend on the overall assessment of the profile and information submitted during the process."
   },
   {
-    q: "Is a physical collateral required?",
-    a: "No, our core loan products are completely unsecured business loans. You do not need to pledge any property or collateral."
+    q: "How can I get more information?",
+    a: "You can reach out to us through our contact form or official communication channels, and a representative will assist you with your queries."
   }
 ];
 

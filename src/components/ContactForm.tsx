@@ -73,7 +73,7 @@ export default function ContactForm({ defaultService = "loans" }: ContactFormPro
         name: `${formData.firstName} ${formData.lastName || ""}`,
         email: formData.email,
         phone: formData.phone ? `+91 ${formData.phone}` : "N/A",
-        "Service Type": formData.serviceType === "pfm" ? "PFM Dashboard Support" : "Loan Services Support",
+        "Service Type": formData.serviceType === "pfm" ? "Financial Management Dashboard Support" : "Loan Services Support",
         message: formData.message,
       };
 
@@ -249,7 +249,7 @@ export default function ContactForm({ defaultService = "loans" }: ContactFormPro
               className="w-full rounded-lg border border-ink/10 px-4 py-3 text-[15px] outline-none transition-all focus:border-royal focus:ring-1 focus:ring-royal bg-white appearance-none cursor-pointer text-ink font-medium"
             >
               <option value="loans">Loan Services Support</option>
-              <option value="pfm">PFM Dashboard Support</option>
+              <option value="pfm">Financial Management Dashboard Support</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-ink/50">
               <svg className="fill-current h-4.5 w-4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

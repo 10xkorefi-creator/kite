@@ -13,14 +13,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact PFM Dashboard Support | Kite Finance",
-  description: "Get technical support for the Kite PFM Dashboard. Inquire about bank statement linking, data aggregation, expense tracking, and security protocols.",
+  title: "Contact Financial Management Dashboard Support | Kite Finance",
+  description: "Get technical support for the Kite Financial Management Dashboard. Inquire about bank statement linking, data aggregation, expense tracking, and security protocols.",
   alternates: {
     canonical: "https://www.kitefinance.in/contact/pfm",
   },
   openGraph: {
-    title: "Contact PFM Dashboard Support | Kite Finance",
-    description: "Get technical support for the Kite PFM Dashboard. Inquire about bank statement linking, data aggregation, expense tracking, and security protocols.",
+    title: "Contact Financial Management Dashboard Support | Kite Finance",
+    description: "Get technical support for the Kite Financial Management Dashboard. Inquire about bank statement linking, data aggregation, expense tracking, and security protocols.",
     url: "https://www.kitefinance.in/contact/pfm",
     siteName: "Kite Finance",
     locale: "en_IN",
@@ -30,12 +30,16 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "How do I enable the PFM Dashboard?",
-    a: "You can securely link your eligible financial accounts through our partnered services. Simply follow the on-screen instructions to provide your consent for securely sharing your financial information to enable the PFM Dashboard."
+    q: "What is the Financial Management Dashboard?",
+    a: "It is an analytics tool designed to help you organize and review your financial insights in one consolidated view."
   },
   {
-    q: "How do I revoke consent for data sharing?",
-    a: "You remain in control of your financial information. You can withdraw your consent at any time through the partnered service used to provide your consent. Once your consent is withdrawn, no new financial information will be accessed."
+    q: "How is my information handled?",
+    a: "We prioritize security and privacy. Data is processed in accordance with our standard privacy protocols and applicable guidelines."
+  },
+  {
+    q: "How can I get assistance?",
+    a: "For any questions or troubleshooting, you can get in touch with our team using the contact options provided on this page."
   }
 ];
 
@@ -53,12 +57,17 @@ export default function ContactPfmPage() {
           </div>
 
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 relative z-10">
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold text-emerald-300 border border-emerald-500/20 mb-4 select-none">
-              <LayoutDashboard className="h-3.5 w-3.5" />
-              PFM Dashboard Tech Support
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-4 select-none">
+              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold text-emerald-300 border border-emerald-500/20">
+                <LayoutDashboard className="h-3.5 w-3.5" />
+                Financial Management Dashboard Tech Support
+              </div>
+              <span className="inline-flex items-center rounded-full bg-amber-500/20 px-3 py-1 text-xs font-bold text-amber-300 border border-amber-500/30">
+                Coming Soon
+              </span>
             </div>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Contact for PFM Dashboard
+              Contact for Financial Management Dashboard
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/80 leading-relaxed font-medium">
               Have any questions?
@@ -118,7 +127,7 @@ export default function ContactPfmPage() {
                 <div className="border-t border-slate-200/80 pt-10">
                   <h3 className="font-display text-xl font-bold text-ink mb-6 flex items-center gap-2">
                     <HelpCircle className="h-5 w-5 text-emerald-500/80" />
-                    PFM Dashboard FAQs
+                    Financial Management Dashboard FAQs
                   </h3>
                   <div className="space-y-6">
                     {faqs.map((faq) => (

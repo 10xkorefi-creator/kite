@@ -15,13 +15,13 @@ import {
 
 export const metadata: Metadata = {
   title: "Contact Us | Kite Finance",
-  description: "Contact Kite Finance. Choose between Loan Services for MSME business loans or PFM Dashboard support for bank statement analysis and expense tracking.",
+  description: "Contact Kite Finance. Choose between Loan Services for MSME business loans or Financial Management Dashboard support for bank statement analysis and expense tracking.",
   alternates: {
     canonical: "https://www.kitefinance.in/contact",
   },
   openGraph: {
     title: "Contact Us | Kite Finance",
-    description: "Contact Kite Finance. Choose between Loan Services for MSME business loans or PFM Dashboard support for bank statement analysis and expense tracking.",
+    description: "Contact Kite Finance. Choose between Loan Services for MSME business loans or Financial Management Dashboard support for bank statement analysis and expense tracking.",
     url: "https://www.kitefinance.in/contact",
     siteName: "Kite Finance",
     locale: "en_IN",
@@ -91,17 +91,22 @@ export default function ContactPortalPage() {
                 </Link>
               </div>
 
-              {/* Card 2: PFM Dashboard */}
+              {/* Card 2: Financial Management Dashboard */}
               <div className="flex flex-col justify-between rounded-3xl border border-emerald-500/10 bg-white p-8 shadow-xl shadow-emerald-500/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-emerald-500/30">
                 <div>
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500 mb-6">
-                    <LayoutDashboard className="h-7 w-7" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500">
+                      <LayoutDashboard className="h-7 w-7" />
+                    </div>
+                    <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700 border border-emerald-200/30">
+                      Coming Soon
+                    </span>
                   </div>
                   <h2 className="font-display text-2xl font-bold text-ink mb-3">
-                    PFM Dashboard Support
+                    Financial Management Dashboard Support
                   </h2>
                   <p className="text-ink/70 text-sm leading-relaxed mb-6">
-                    Get assistance with setting up your PFM Dashboard and understanding your financial insights in one place.</p>
+                    Get assistance with setting up your Financial Management Dashboard and understanding your financial insights in one place.</p>
 
                   <div className="space-y-3.5 border-t border-slate-100 pt-6 mb-8 text-sm">
                     <div className="flex items-center gap-3 text-ink/75">
