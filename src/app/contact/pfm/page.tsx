@@ -66,7 +66,11 @@ export default function ContactPfmPage() {
                 <LayoutDashboard className="h-3.5 w-3.5" />
                 Financial Management Dashboard Tech Support
               </div>
-              <span className="inline-flex items-center rounded-full bg-amber-500/20 px-3 py-1 text-xs font-bold text-amber-300 border border-amber-500/30">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 px-3.5 py-1 text-xs font-bold text-amber-300 border border-amber-500/40 shadow-lg shadow-amber-500/5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                </span>
                 Coming Soon
               </span>
             </div>
