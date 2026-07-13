@@ -9,7 +9,10 @@ import {
   LayoutDashboard,
   ShieldCheck,
   HelpCircle,
-  Activity
+  Activity,
+  Wallet,
+  TrendingUp,
+  Database
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -72,6 +75,74 @@ export default function ContactPfmPage() {
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/80 leading-relaxed font-medium">
               Have any questions?
               Let our dashboard support team help you            </p>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-16 bg-white border-b border-slate-100">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                What the Financial Management Dashboard helps you do
+              </h2>
+              <p className="mt-4 text-base text-ink/70 leading-relaxed">
+                Take control of your business finances with advanced insights, automated analytics, and powerful forecasting tools.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Feature 1: Business Financial Health */}
+              <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
+                  <Activity className="h-6 w-6" />
+                </div>
+                <h3 className="font-display text-lg font-bold text-ink mb-2">
+                  Business Financial Health
+                </h3>
+                <p className="text-sm text-ink/70 leading-relaxed">
+                  Get a high-level view of overall business performance through key financial indicators. Assess financial stability, growth trends, and risk indicators.
+                </p>
+              </div>
+
+              {/* Feature 2: Working Capital Analysis */}
+              <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
+                  <Wallet className="h-6 w-6" />
+                </div>
+                <h3 className="font-display text-lg font-bold text-ink mb-2">
+                  Working Capital Analysis
+                </h3>
+                <p className="text-sm text-ink/70 leading-relaxed">
+                  Assess short-term fund availability by reviewing cash and bank balances against upcoming obligations. Identify liquidity gaps early and assess readiness for near-term commitments.
+                </p>
+              </div>
+
+              {/* Feature 3: Cash Flow Insights & Forecasting */}
+              <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
+                  <TrendingUp className="h-6 w-6" />
+                </div>
+                <h3 className="font-display text-lg font-bold text-ink mb-2">
+                  Cash Flow Insights & Forecasting
+                </h3>
+                <p className="text-sm text-ink/70 leading-relaxed">
+                  Monitor how money moves in and out of the business over time. Use historical inflow and outflow patterns to estimate future cash availability, anticipate shortages, and plan funding needs better.
+                </p>
+              </div>
+
+              {/* Feature 4: Transactional Intelligence */}
+              <div className="flex flex-col rounded-2xl border border-slate-100 bg-slate-50/30 p-6 transition-all duration-300 hover:shadow-md hover:border-emerald-500/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500 mb-5">
+                  <Database className="h-6 w-6" />
+                </div>
+                <h3 className="font-display text-lg font-bold text-ink mb-2">
+                  Transactional Intelligence
+                </h3>
+                <p className="text-sm text-ink/70 leading-relaxed">
+                  Turn bank transaction data into meaningful business insights. Identify recurring transactions, high-value movements, and business spend patterns.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
